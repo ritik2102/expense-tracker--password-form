@@ -114,24 +114,23 @@
             successLogin.style.visibility='hidden';
         }
         init();
-
+        const query = window.location.search.substring(1);
+        const uuid = query.slice(5);
         submitButton.onclick = async (e) => {
             e.preventDefault();
             const password = passwordField.value;
             const confirmPassword = confirmPasswordField.value;
+            
+            
             if(password!==confirmPassword){
-                console.log(password, confirmPassword);
                 alert("Passwords do not match");
             }
             else{
-                const url=window.location.href;
-                const uuid=url.slice(45);
-                // console.log(uuid);
                 const data={
                     password:password
                 }
                 const res=await axios.post(`http://localhost:3000/password/setPassword/${uuid}`,data);
-                console.log('response',res.data.success);
+           
                 const result=res.data.success;
                 if(result===true){
                     expenseHeading.style.visibility='hidden';
