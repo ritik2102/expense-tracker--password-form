@@ -129,7 +129,7 @@
                 const data={
                     password:password
                 }
-                const res=await axios.post(`http://localhost:3000/password/setPassword/${uuid}`,data);
+                const res=await axios.post(`http://16.171.5.97:3000/password/setPassword/${uuid}`,data);
            
                 const result=res.data.success;
                 if(result===true){
